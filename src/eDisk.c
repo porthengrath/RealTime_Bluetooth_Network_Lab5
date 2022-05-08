@@ -72,7 +72,7 @@ enum DRESULT eDisk_ReadSector(
 // return RES_PARERR if EDISK_ADDR_MIN + 512*sector > EDISK_ADDR_MAX
 // copy 512 bytes from ROM (disk) into RAM (buff)
 
-  if (sector > 254)
+  if (sector > 255)
   {
     // expected 0..255
     return RES_PARERR;
@@ -102,7 +102,7 @@ enum DRESULT eDisk_WriteSector(
 // return RES_PARERR if EDISK_ADDR_MIN + 512*sector > EDISK_ADDR_MAX
 // write 512 bytes from RAM (buff) into ROM (disk)
 // you can use Flash_FastWrite or Flash_WriteArray
-  if (sector > 254)
+  if (sector > 255)
   {
     // expected 0..255
     return RES_PARERR;
@@ -110,7 +110,7 @@ enum DRESULT eDisk_WriteSector(
   
   uint32_t addr = EDISK_ADDR_MIN + 512*sector;
   
-  Flash_WriteArray((uint32_t*)buff, addr, 512);
+  Flash_WriteArray((uint32_t*)buff, addr, 512/sizeof(uint32_t));
 
   return RES_OK;
 }
@@ -131,10 +131,7 @@ enum DRESULT eDisk_Format(void){
       addr < EDISK_ADDR_MAX;
       addr += 1024)
 	{
-    if (Flash_Erase(addr) != NOERROR)
-    {
-      return RES_ERROR;
-    }
+    Flash_Erase(addr);
   }
 	
   return RES_OK;

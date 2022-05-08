@@ -1,9 +1,12 @@
+#ifndef EFILE_H_
+#define EFILE_H_
+
 // eFile.h
 // Runs on either TM4C123 or MSP432
 // High-level implementation of the file system implementation.
 // Daniel and Jonathan Valvano
 // August 29, 2016
-
+#include <stdint.h>
 
 //********OS_File_New*************
 // Returns a file number of a new file for writing
@@ -51,3 +54,5 @@ uint8_t OS_File_Flush(void);
 // Outputs: 0 if success
 // Errors:  255 on disk write failure
 uint8_t OS_File_Format(void);
+
+#endif

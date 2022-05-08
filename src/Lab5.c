@@ -189,7 +189,7 @@ int main(void){
   if(BSP_Button1_Input() == 0){ // run TExaS if Button1 is pressed
     BSP_LCD_DrawString(0, 0, "Running TExaS grader", LCD_YELLOW);
     // change 1000 to 4-digit number from edX
-    TExaS_Init(GRADER, 1000);   // initialize the Lab 5 grader
+    TExaS_Init(GRADER, 5713);   // initialize the Lab 5 grader
 //    TExaS_Init(LOGICANALYZER, 1000);  
 // Logic analyzer will run, but the Lab 5 doesn't really use the logic analyzer
     while(BSP_Button1_Input() == 0){};

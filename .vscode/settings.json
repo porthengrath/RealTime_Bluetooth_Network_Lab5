@@ -1,3 +1,6 @@
 {
-    "nrf-connect.topdir": "${workspaceFolder}"
+    "nrf-connect.topdir": "${workspaceFolder}",
+    "files.associations": {
+        "edisk.h": "c"
+    }
 }

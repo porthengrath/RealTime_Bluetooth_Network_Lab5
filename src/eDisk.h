@@ -1,3 +1,6 @@
+#ifndef EDISK_H_
+#define EDISK_H_
+
 // eDisk.h
 // Runs on either MSP432 or TM4C123
 // Mid-level implementation of the solid state disk device
@@ -31,6 +34,7 @@
  For more information about my classes, my research, and my books, see
  http://users.ece.utexas.edu/~valvano/
  */
+#include <stdint.h>
 
 #define EDISK_ADDR_MIN      0x00020000  // Flash Bank1 minimum address
 #define EDISK_ADDR_MAX      0x0003FFFF  // Flash Bank1 maximum address
@@ -89,3 +93,5 @@ enum DRESULT eDisk_WriteSector(
 //  RES_NOTRDY    3: Not Ready
 //  RES_PARERR    4: Invalid Parameter
 enum DRESULT eDisk_Format(void);
+
+#endif
